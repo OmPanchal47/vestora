@@ -1,0 +1,163 @@
+/* =============================================================
+   App.css — Styles for things BOOTSTRAP DOESN'T already give us.
+   =============================================================
+   WHY WE STILL NEED A CUSTOM CSS FILE AT ALL (even with Bootstrap):
+   Bootstrap gives us generic, reusable classes (card, btn, row). But
+   it has no idea about OUR specific design choices — like how tall a
+   product image box should be, or what a "chip" (the little removable
+   filter tag) should look like. Those are custom to this project, so
+   they go here instead.
+*/
+
+.page-wrap {
+  padding: 20px;
+}
+
+/* The search box's width changes depending on screen size, this is
+   defined here (not inline in Navbar.jsx) so we can use a media query —
+   inline styles can't easily respond to screen width. */
+.search-input {
+  width: 130px;
+}
+
+@media (min-width: 992px) {
+  .search-input {
+    width: 260px;
+  }
+}
+
+/* Keeps every product image box the same shape (3 units wide for every
+   4 units tall) no matter what size image the API actually gives us —
+   so the grid looks uniform instead of jagged. */
+.product-img-wrap {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+/* FIX for a real layout bug: Bootstrap's .card uses flexbox internally.
+   Flex children don't shrink below their natural content size by
+   default, so a long product title could silently force the whole card
+   (and therefore the whole page) wider than the screen. min-width: 0
+   overrides that default and lets text-truncate (the "..." cut-off)
+   actually work as intended. */
+.card {
+  min-width: 0;
+}
+
+.card-body {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ---- filters sidebar ---- */
+.filters-box {
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.filters-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.filters-head h6 {
+  font-weight: 700;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.filters-head button {
+  border: none;
+  background: none;
+  color: #1a73e8;
+  font-size: 0.8rem;
+}
+
+.filter-group {
+  border-top: 1px solid #f0f0f0;
+  padding: 12px 0;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.filter-row span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-row small {
+  color: #999;
+}
+
+.size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-btn {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.size-btn.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.crumb {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* ---- applied filter chips (Stage 6) ----
+   Each chip is a small pill showing which filter is active, with its
+   own little "x" button to remove just that one. */
+.applied-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+.chip button {
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
