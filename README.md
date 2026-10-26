@@ -1,16 +1,28 @@
-# React + Vite
+# Vestora
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A TV show browsing catalog built with React, Vite, React Router, and Bootstrap.
 
-Currently, two official plugins are available:
+Fetches live data from the [TVMaze API](https://www.tvmaze.com/api) and lets
+you search, filter, and sort through shows, with a details page for each one.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse show posters pulled from a live public API
+- Search by name
+- Filter by type, language, theme, collection, format
+- Filter by rental price range
+- Sort by price, newest, popularity, or rating
+- Combine multiple filters at once
+- Remove individual applied filters or clear them all
+- Click a show to see its full details page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running locally
 
-## Expanding the Oxlint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Stack
+
+React, Vite, React Router DOM, Bootstrap, Fetch API.
